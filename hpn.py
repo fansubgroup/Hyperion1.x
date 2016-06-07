@@ -14,10 +14,7 @@ import md5
 import random
 import json
 
-print '*** Thank Fansub Group For Your Labor ***'
-
-appid = ''
-secretKey = ''
+print '...hyperion 1.2 version...'
     
 def search_txt(path, word):
     
@@ -27,9 +24,9 @@ def search_txt(path, word):
         for dirpath, dirnames, filenames in os.walk(path):
             for f in filenames:
                 if re.match(word, f):
-                    print '[' + f + ']' + '\n'
+                    print '\n' + '<<<[' + f + ']>>>' + '\n'
                     try:
-                        choice = raw_input('***Translation this file?[y/n]')
+                        choice = raw_input('Translation this file?[y/n]')
                         if choice == 'y':
                             return f
                         elif choice == 'n':
@@ -43,9 +40,8 @@ def get_txt_name():
     
     #Usage: Return the target file
     
-    print 'hyperion 1.2 version'
     try:
-        name = raw_input('Now enter your file name: ')
+        name = raw_input('Input your file name: ')
         path = os.getcwd()
         filename = search_txt(path, name)
         if filename:
@@ -155,11 +151,56 @@ def get_trans_txt(input_file):
             return english_pool
 
 
+def app_key():
+    
+    #Usage: Save or read appid and secreKey
+    
+    read_appkey = open('appkey', 'r')
+    appid_c = 1
+    appid_list = []
+    skey_list = []
+    ret = []
+    for ra in read_appkey.readlines():
+        if appid_c == 1:
+            appid_list.append(ra)
+            appid_c = 0
+        elif appid_c == 0:
+            skey_list.append(ra)
+    read_appkey.close()
+    if len(appid_list) == 1:
+        if len(skey_list) == 1:
+            ret.append(appid_list[0])
+            ret.append(skey_list[0])
+            return ret
+        elif len(skey_list) > 1:
+            print 'skey error'
+    elif len(appid_list) > 1:
+        print 'appid error'
+    else:
+        print '##[Notice]##'
+        print '##[Please input you appid and scereKey]##'
+        save_appkey = open('appkey', 'a')
+        appid = raw_input('Input you addid:\n')
+        save_appkey.writelines(appid)
+        save_appkey.writelines('\n')
+        skey = raw_input('Input you skey:\n')
+        save_appkey.writelines(skey)
+        save_appkey.close()
+        ret.append(appid)
+        ret.append(skey)
+        return ret
+
+
 def translation_txt():
     
     #Usage: Translation the target file
     
     print '<Start translation>'
+    appid_return, secretKey_return = app_key()
+    appid = appid_return.strip('\n')
+    secretKey = secretKey_return.strip('\n')
+    print appid
+    print secretKey
     loop = True
     count_num = 1
     english = []
@@ -220,7 +261,7 @@ def join_txt():
     print '<Start join>'
     join_judge = True
     nb = 1
-    result_name = '2/result.srt'
+    result_name = '2/result.docx'
     wp = open(result_name, 'a')
     while join_judge:
         file_path = '%d_temp.txt' % nb
