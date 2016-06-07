@@ -16,6 +16,9 @@ import json
 
 print '*** Thank Fansub Group For Your Labor ***'
 
+appid = ''
+secretKey = ''
+    
 def search_txt(path, word):
     
     #Usage: Search and find the target file
@@ -40,12 +43,7 @@ def get_txt_name():
     
     #Usage: Return the target file
     
-    print '1.2 version stated:'
-    print 'At least the input file name first name'
-    print 'Like [West.2013.FESTiVAL.DVDRiP.X264-TASTE.srt] at least the input a [W]'
-    print 'Or [We], and [West]...etc'
-    print 'Pay attention to case sensitive'
-    print 'You can turn off the window to exit'
+    print 'hyperion 1.2 version'
     try:
         name = raw_input('Now enter your file name: ')
         path = os.getcwd()
@@ -165,8 +163,6 @@ def translation_txt():
     loop = True
     count_num = 1
     english = []
-    appid = '20160217000012384'
-    secretKey = 'QPO9tvLOm0UiRYTot5tE'
     httpClient = None
     myurl = '/api/trans/vip/translate'
     while loop:
