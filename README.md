@@ -131,22 +131,24 @@ The core module of the GUI.
 
 ### So, how to use these language?
 
-In the file, we have a file name `hyperion.conf`, in the first line of the file, is the `Source Language`
+* In the file, we have a file name `hyn.py`.
 
-And in the second line of the file, is the `Target Language`
+* You can change it with you `text editor`.
 
-You can change it with you `text editor`
+* Source language is in the `216` line.
 
-Source language is in the `216` line
+* Target language is in the `217` line.
 
-Target language is in the `217` line
+
 
 #### However, please note that the use of the `text editor` to change this file should be the same as the original file format.
 
-### Use steps
 
-The first step you should enter the source file part of name 
 
-If you want to use the default configuration, that is, the English to Chinese translation, `press enter`.
+### Steps
 
-If not, you can refer to the `above steps` to modify the settings to achieve you intended purpose.
+* The first step you should enter the source file part of name.
+
+* If you want to use the default configuration, that is, the English to Chinese translation, `press enter`.
+
+* If not, you can refer to the `above steps` to modify the settings to achieve you intended purpose.
