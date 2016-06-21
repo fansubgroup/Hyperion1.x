@@ -191,7 +191,7 @@ def app_key():
         return ret
 
 
-def translation_txt():
+def translation_txt(src, tar):
     
     #Usage: Translation the target file
     
@@ -213,8 +213,8 @@ def translation_txt():
             if get_trans_txt(txt_name_after):
                 english = get_trans_txt(txt_name_after)
                 for q in english:
-                    fromLang = 'en'
-                    toLang = 'zh'
+                    fromLang = src
+                    toLang = tar
                     salt = random.randint(32768, 65536)
                     sign = appid+q+str(salt)+secretKey
                     m1 = md5.new()
@@ -298,8 +298,15 @@ def delete_txt():
 
 
 def main():
+    if (len(sys.argv) != 3):
+        print "Usage: ./hpn.py source_language target_language"
+        sys.exit(1)
+
+    # set up environment
+    source_language = sys.argv[1]
+    target_language = sys.argv[2]
     split_txt()
-    translation_txt()
+    translation_txt(source_language, target_language)
     join_txt()
     delete_txt()
 
