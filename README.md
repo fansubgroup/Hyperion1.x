@@ -1,10 +1,12 @@
 # Hyperion1.x
 
-The core module of the GUI.
+This is the core of the GUI.
 
-### In order to better service interface for Hyperion2.x, and better for subtitle Group Services, so make this.
+### In order to better service interface for Hyperion2.x or Hyperion3.x
 
-#### You can enter the source language and target language according to your needs
+#### And better for subtitle Group Services, so we made this software
+
+#### Enter the source language and target language in the program to use
 
 #### This coeerspondence table is here
 
