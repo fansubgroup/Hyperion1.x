@@ -173,7 +173,7 @@ def app_key():
         return(appid_key, s_key)    
 
 
-def translation_txt():
+def translation_txt(src, tar):
     
     #Usage: Translation the target file
     
@@ -188,14 +188,13 @@ def translation_txt():
         pig_for_everytime = 1
         txt_name = '%d_temp.txt' % count_num
         txt_name_after = '1/%s' % txt_name
-        print txt_name_after
         if os.path.exists(txt_name_after):
             
             if get_trans_txt(txt_name_after):
                 english = get_trans_txt(txt_name_after)
                 for q in english:
                     q = q.strip('\n')
-                    http_return = xhttp.xhttp(appid, secretKey, q, "en", "zh")
+                    http_return = xhttp.xhttp(appid, secretKey, q, src, tar)
                     pig = re.findall(r'<html>', http_return)
                     if len(pig) != 0:
                         loop_pig = True
@@ -213,7 +212,7 @@ def translation_txt():
                                 print '<-----Thanks----->'
                                 q = re.findall('[A-Za-z]+', q)
                                 rescue_q = ' '.join(q)
-                                http_return = xhttp.xhttp(appid, secretKey, rescue_q, "en", "zh")
+                                http_return = xhttp.xhttp(appid, secretKey, rescue_q, src, tar)
                                 pig = re.findall(r'<html>', http_return)
                                 if len(pig) != 0:
                                     pig_for_everytime += 1
@@ -249,8 +248,8 @@ def join_txt():
     else:
         if os.path.exists('2/result.docx'):
             result_name = '2/result_%d.docx' % random.randint(2, 10)
-            print 'Warning, you should take the result out of the 2 until do next translate'
-            print 'I put the new result in %s' % result_name
+            print 'Warning, you should cut the file out of the 2 directory before you make the next translation'
+            print 'I put the new result in %s name' % result_name
     wp = open(result_name, 'a')
     while join_judge:
         file_path = '%d_temp.txt' % nb
@@ -287,8 +286,15 @@ def delete_txt():
 
 
 def main():
+    if (len(sys.argv) != 3):
+        print "Usage: ./hpn.py source_language target_language"
+        sys.exit(1)
+
+    # set up environment
+    source_language = sys.argv[1]
+    target_language = sys.argv[2]
     split_txt()
-    translation_txt()
+    translation_txt(source_language, target_language)
     join_txt()
     delete_txt()
 
