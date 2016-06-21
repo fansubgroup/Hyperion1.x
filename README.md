@@ -10,13 +10,13 @@ One is `hpn.py`, and one is `hpn_plus.py`
 
 So, what is the difference between them?
 
-[1] First, `hpn_plus.py` is based on a completely new structure
+#### [1] First, `hpn_plus.py` is based on a completely new structure
 
 For online translation, it is very important for the HTTP module has been use C language reconstruction and compliation, making this module the probability if error is very small
 
 If you are going to deal with a large number of paragraphs, we recommend that you use `hpn_plus.py`
 
-[2] Second, but this is not to say that `hpn.py` is not good
+#### [2] Second, but this is not to say that `hpn.py` is not good
 
 `hpn.py` is the oldest version, and the smallest package dependency, this means that your computer only needs to install the `Python` to run the program
 
