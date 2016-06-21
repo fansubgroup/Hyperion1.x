@@ -152,3 +152,16 @@ The core module of the GUI.
 * If you want to use the default configuration, that is, the English to Chinese translation, `press enter`.
 
 * If not, you can refer to the `above steps` to modify the settings to achieve you intended purpose.
+
+
+### hpy_plus.py useage
+
+* with the file xhttp.so
+
+* You can edit the xhttp.c to get more fuction
+
+* do this with xhttp.c
+
+```
+gcc -shared -I/usr/include/python2.7 -fPIC xhttp.c -lcurl -lssl -pthread -o xhttp.so
+```
