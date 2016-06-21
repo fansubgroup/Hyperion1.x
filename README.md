@@ -1,12 +1,53 @@
 # Hyperion1.x
 
-This is the core of the GUI.
+This is the core component of 2.x and 3.x
 
-### In order to better service interface for Hyperion2.x or Hyperion3.x
+But also supports the translation work under the command line
 
-#### And better for subtitle Group Services, so we made this software
+### We now have two version of the software in 1.0
 
-#### Enter the source language and target language in the program to use
+One is `hpn.py`, and one is `hpn_plus.py`
+
+So, what is the difference between them?
+
+[1] First, `hpn_plus.py` is based on a completely new structure
+
+For online translation, it is very important for the HTTP module has been use C language reconstruction and compliation, making this module the probability if error is very small
+
+If you are going to deal with a large number of paragraphs, we recommend that you use `hpn_plus.py`
+
+[2] Second, but this is not to say that `hpn.py` is not good
+
+`hpn.py` is the oldest version, and the smallest package dependency, this means that your computer only needs to install the `Python` to run the program
+
+But the `hpn.py` process a large number of data will appear whrn the network blocking and the collapse of the program 
+
+### How to use these language(the usage of two version is same)?
+
+* Download the entrie folder to your local directory
+
+* Install the `Python`
+
+* In the program directory, there is a configure file name `appkey`, Input you `appid` in the first line, and the `sercetKey` in second line 
+
+* Use the `cmd` (Windows) or `shell` (Linux) switch to the place where you put the program
+
+* Input the command in `cmd` (Windows) or `shell` (Linux) like this:
+```
+./hpn.py YOU_SOURCE_LANGUAGE YOU_TARGET_LANGUAGE
+```
+or
+```
+./hpn_plus.py YOU_SOURCE_LANGUAGE YOU_TARGET_LANGUAGE
+```
+
+## User attention using `hpn_plus.py`
+
+We have been working to deal with errors that can occur in any program, but this will inevitably be an unexpected error in the program
+
+In order to make the program not because of some unknown mistakes, stop halfway down, take some of the `necessary` measures
+
+If you find that you would have to eb trnaslated into `Spanish` is `Japanses` appear, that is `not` a translation error, is we to remind you, this paragraph of word cannot transmitted via HTTP to the API to translate, so the display into `Japanses` to remind you from the text to find the corresponding words and translation by youself.
 
 #### This coeerspondence table is here
 
@@ -129,41 +170,3 @@ This is the core of the GUI.
    </tr>
 </table>
 
-
-
-### So, how to use these language?
-
-* In the file, we have a file name `hyn.py`.
-
-* You can change it with you `text editor`.
-
-* Source language is in the `216` line.
-
-* Target language is in the `217` line.
-
-
-
-#### However, please note that the use of the `text editor` to change this file should be the same as the original file format.
-
-
-
-### Steps
-
-* The first step you should enter the source file part of name.
-
-* If you want to use the default configuration, that is, the English to Chinese translation, `press enter`.
-
-* If not, you can refer to the `above steps` to modify the settings to achieve you intended purpose.
-
-
-### hpy_plus.py useage
-
-* with the file xhttp.so
-
-* You can edit the xhttp.c to get more fuction
-
-* do this with xhttp.c
-
-```
-gcc -shared -I/usr/include/python2.7 -fPIC xhttp.c -lcurl -lssl -pthread -o xhttp.so
-```
