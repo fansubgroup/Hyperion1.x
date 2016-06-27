@@ -28,7 +28,7 @@ But the `hpn.py` process a large number of data will appear whrn the network blo
 
 * Install the `Python`
 
-* In the program directory, there is a configure file name `appkey`, Input you `appid` in the first line, and the `sercetKey` in second line 
+### * In the program directory, there is a configure file name `appkey`, Input you `appid` in the first line, and the `sercetKey` in second line 
 
 * Use the `cmd` (Windows) or `shell` (Linux) switch to the place where you put the program
 
